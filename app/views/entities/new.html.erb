@@ -1,2 +1,19 @@
-<h1>Entities#new</h1>
-<p>Find me in app/views/entities/new.html.erb</p>
+<div class="container">
+
+<h2 class= "mb-3"> Add a transaction </h2>
+ <%= form_with scope: :entity, url: group_entities_path(@categorie), method: :post do |f|%>
+   <div class="mb-3">
+     <%= f.label :name, "Transaction name", class:"label-control"%>
+     <%= f.text_field :name, autofocus: true, autocomplete: ":name", class:"form-control"%>
+   </div>
+
+   <div class="mb-3">
+     <%= f.label :amount, "Transaction amount"%>
+     <%= f.number_field :amount, autofocus: true, autocomplete: ":amount", class:"form-control"%>
+   </div>
+
+   <div class="action">
+     <%= f.submit "add ", class:"btn btn-primary" %>
+   </div>
+ <% end %>
+</div>

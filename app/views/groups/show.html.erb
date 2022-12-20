@@ -1,2 +1,7 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<h1>transactions <% @categorie.total %></h1>
+  <%= @transactions.each do |t| %> 
+    <p> Amount: <%= t.amount %></p>
+    <p> Name: <%= t.name %></p>
+  <% end %>
+
+ <%= link_to "Add Transaction", new_group_entity_path %>

@@ -1,9 +1,8 @@
-<div class="splash-container">
-  <div class="splash-r1">
-    <%= image_tag("logo.png") %>
+  <div class="mb-3">
+    <%= image_tag("logo.png", class: "img-fluid")%>
   </div>
-  <div class="splash-r2">
+  <div class="d-grid gap-2">
     <%=link_to "sign up" ,new_user_registration_path, class:"btn btn-primary"%>
-    <%=link_to "Sign in" ,new_user_session_path %>
+    <%=link_to "Sign in" ,new_user_session_path, class: "btn btn-light" %>
   </div>
 </div>
