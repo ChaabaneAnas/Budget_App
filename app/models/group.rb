@@ -5,6 +5,11 @@ class Group < ApplicationRecord
   validates :name, presence:true, length:{minimum: 2}
 
   def total
-    entities.map{|e| e.amount}.reduce(:+)
+    total = 0
+    calcul = entities.map{|e| e.amount}.reduce(:+)
+    if calcul
+      total +=  calcul
+    end
+    total
   end
 end

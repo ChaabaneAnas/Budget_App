@@ -1,14 +1,54 @@
+<%= render "shared/nav", {text:"Transactions", path: groups_path} %>
 
-<div>
-  <h3 class="mb-5 mt-n5p-3 bg-white">Total: <%= @categorie.total%>$</h3>
-  <% @transactions.each do |t|%>
-    <div class="d-flex g-0 mb-4 justify-content-between">
-      <div class="p-3"><%= t.name %></div>
-      <div class="p-3"><%=t.amount%></div>
+<div class="card" style="height:60px;">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-7">
+        <p class="text-muted">Credit</p>
+      </div>
+      <div class="col-4">
+        <p class="text-dark fw-bold">
+          <small>
+           <%= @categorie.total %>$
+          </small>
+        </p>
+      </div>
     </div>
-  <%end%>
-<div>
-<%= link_to "Add transaction", new_group_entity_path, class:"btn btn-primary"%>
-<div>
-<%= link_to "back", groups_path %>
+  </div>
 </div>
+<% if @transactions.empty? %>
+  <div class="container mt-3">
+    <div class="card text-bg-danger">
+      <div class="card-body">
+        <p class="card-text">There is not Transactions yet Add one below</p>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="container mt-3">
+    <% @transactions.each do |transaction| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row d-flex align-items-center">
+            <div class="col-7">
+              <p class="card-text fw-bold"><%= transaction.name %></p>
+            </div>
+            <div class="col-5">
+              <p class="card-text fw-bold"><small>
+                  $<%= transaction.amount %>
+                </small></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <p class="card-text"><small class="text-muted"><%= transaction.created_at %></small></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<%= link_to new_group_entity_path ,class:"nav-link" do %>
+  <section class="bg-success shadow text-center text-white p-2 mt-5">
+    <p class="border border-white my-3 p-1">Add New Transaction</p>
+  </section>
+<% end %>

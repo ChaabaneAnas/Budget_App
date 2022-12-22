@@ -1,21 +1,16 @@
- <div class="container">
+<%= render "shared/nav", {text:"NewCategorie", path: groups_path} %>
 
- <h2 class= "mb-3"> Add a categorie </h2>
-  <%= form_with model: @categorie do |f|%>
-    <div class="mb-3">
+  <div class="container mt-3">
+  <%= form_with url: new_group_path do |f| %>
+    <div class="form-group mb-3">
+      <%= f.label :icon, "Icon source", class:"label-control"%>
+      <%= f.text_field :icon, Placeholder:"https://cdn-icons-png.flaticon.com/128/1046/1046857.png", autofocus: true, autocomplete: ":name", class:"form-control"%>
+    </div>
+    <div class="form-group mb-3">
       <%= f.label :name, "Category", class:"label-control"%>
-      <%= f.text_field :name, autofocus: true, autocomplete: ":name", class:"form-control"%>
+      <%= f.text_field :name,  class:"form-control", Placeholder:"Name"%>
     </div>
+    <%= f.submit "Add Category",class:"btn btn-primary btn-sm" %>
+  </div>
+<% end %>
 
-    <div class="mb-3">
-      <%= f.label :icon, "icon URL"%>
-      <%= f.text_field :icon, autofocus: true, autocomplete: ":icon", class:"form-control"%>
-    </div>
-
-    <div class="action">
-      <%= f.submit "add ", class:"btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
-
-<%= link_to "back", groups_path"%>

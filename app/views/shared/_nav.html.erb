@@ -1,24 +1,20 @@
-
-
-
-<nav class="navbar navbar-dark bg-primary">
-  <div class="container-fluid pe-5">
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand mx-auto" href=""><%=@title%></a>
-    <div class="collapse navbar-collapse mr-30" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Home", groups_path, class:"nav-link active" %> 
-        </li>
-        <li class="nav-item">
-        <%= link_to 'Sign Out', destroy_user_session_path, class: 'nav-link', data: { turbo_method: :delete } %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-      </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <% if root_path %>
+      <%= link_to path do %>
+        <i class="fa fa-arrow-left  text-white"></i>
+      <% end %>
+    <% else %>
+      <i class="fa fa-bars text-white">
+      </i>
+    <% end %>
+    <a class="navbar-brand" href="#"><%= text %></a>
+    <% if current_user.present? %>
+      <%= button_to destroy_user_session_path, class:"btn", method: :delete do %>
+        <i class="fa fa-power-off text-danger"></i>
+      <% end %>
+    <% else %>
+      <i class="fa fa-user text-white"></i>
+    <% end %>
   </div>
 </nav>
