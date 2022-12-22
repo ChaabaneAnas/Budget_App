@@ -16,13 +16,14 @@ RSpec.describe User, type: :model do
   end 
 
   it'should not be valid with an existing email' do 
+    @user.save!
     @user1 = User.new(name:"leila", email:"Jhon@email.com", password:"password")
-    except(@user1).to_not be_valid
+    expect(@user1).to_not be_valid
   end 
 
   it'should not be valid without a password' do
     @user.password = nil 
-    expect(@user).to_not be.valid
+    expect(@user).to_not be_valid
   end 
 
 end
