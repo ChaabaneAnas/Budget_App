@@ -1,8 +1,20 @@
-  <h1>Catergorie</h1>
-  <% @categories.each do |c|%>
-    <p><%=c.name%> <p> 
-    <p><%=c.total%></p>
-    <img src="<%= c.icon %>"/>
-  <%end%>
 
-  <%= link_to "Add acategorie", new_group_path %>
+<div>
+    <ul>
+      <% @categories.each do |c|%>
+        <div class="row g-0 bg-white position-relative mb-4">
+          <div class="col-4 p-3">
+            <img src="<%= c.icon %>" class="w-100" alt="category icon">
+          </div>
+          <div class="col-8 d-flex flex-column">
+            <div class="d-flex h-75 align-items-center justify-content-between">
+              <p class ="text-secondary mt-4"><%=c.name%></p>
+              <p class ="text-dark mt-4"><%=c.total%>$</p>
+            </div>
+            <%= link_to "see more", group_entities_path(c), class:"stretched-link" %>
+          </div>
+        </div>
+      <%end%>
+    </ul>
+<div>
+  <%= link_to "Add acategorie", new_group_path, class:"btn btn-primary" %>

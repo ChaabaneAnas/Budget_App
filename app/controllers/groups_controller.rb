@@ -1,14 +1,13 @@
 class GroupsController < ApplicationController
-    before_action :authenticate_user!
     before_action :set_user
     before_action :set_categorie, only: [:show]
 
   def index
     @categories = @user.groups.includes(:entities)
+    @title = 'Categories'
   end
 
-  def show
-  end
+
 
   def new
     @categorie = Group.new

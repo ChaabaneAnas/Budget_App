@@ -1,7 +1,14 @@
-<h1>transactions <% @categorie.total %></h1>
-  <%= @transactions.each do |t| %> 
-    <p> Amount: <%= t.amount %></p>
-    <p> Name: <%= t.name %></p>
-  <% end %>
 
- <%= link_to "Add Transaction", new_group_entity_path %>
+<div>
+  <h3 class="mb-5 mt-n5p-3 bg-white">Total: <%= @categorie.total%>$</h3>
+  <% @transactions.each do |t|%>
+    <div class="d-flex g-0 mb-4 justify-content-between">
+      <div class="p-3"><%= t.name %></div>
+      <div class="p-3"><%=t.amount%></div>
+    </div>
+  <%end%>
+<div>
+<%= link_to "Add transaction", new_group_entity_path, class:"btn btn-primary"%>
+<div>
+<%= link_to "back", groups_path %>
+</div>

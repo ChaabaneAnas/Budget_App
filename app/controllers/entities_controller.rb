@@ -1,15 +1,14 @@
 class EntitiesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_categorie, only: [:create, :index, :new]
+  before_action :set_user, only: [:index, :new]
 
   def index
     @transactions = @categorie.entities.order(created_at: :desc)
-  end
-
-  def show
+    @title = 'Transalctions'
   end
 
   def new
+    @categories = @user.groups
     @transaction = Entity.new
   end
 
@@ -28,12 +27,15 @@ class EntitiesController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :amount)
+    params.require(:entity).permit(:name, :amount, :groups)
   end 
 
   def set_categorie
     @categorie = Group.find(params[:group_id])
   end
 
+  def set_user
+    @user = current_user
+  end 
 
 end
