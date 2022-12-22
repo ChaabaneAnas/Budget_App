@@ -1,0 +1,49 @@
+<%= render "shared/nav", {text:"Categories", path: root_path} %>
+
+<div class="card" style="height:60px;">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-7">
+        <p class="text-muted">Credit</p>
+      </div>
+      <div class="col-4">
+        <p class="text-dark">
+         <%=@user.c_total%>$
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <% @categories.each do |category| %>
+    <%= link_to group_entities_path(category), class:"nav-link" do %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row d-flex align-items-center">
+            <div class="col-3">
+              <img src="<%= category.icon%>" class="img-fluid" alt="...">
+            </div>
+            <div class="col-5">
+              <p class="card-text"><%= category.name %></p>
+            </div>
+            <div class="col-4">
+              <p class="card-text fw-bold"><small>
+                 <%=category.total%>$
+                </small></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <p class="card-text"><small class="text-muted"><%=category.created_at%></small></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to new_group_path,class:"nav-link" do %>
+  <section class="bg-success shadow text-center text-white p-2 mt-5">
+    <p class="border border-white my-3 p-1">Add New Category</p>
+  </section>
+<% end %>
+
+
