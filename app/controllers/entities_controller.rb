@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
-  before_action :set_categorie, only: [:create, :index, :new]
-  before_action :set_user, only: [:index, :new]
+  before_action :set_categorie, only: %i[create index new]
+  before_action :set_user, only: %i[index new]
 
   def index
     @transactions = @categorie.entities.order(created_at: :desc)
@@ -18,17 +18,17 @@ class EntitiesController < ApplicationController
     @categorie.entities << @transaction
     if @transaction.save
       redirect_to groups_path notice: 'Transaction aded succseffully'
-    else  
-      flash[:alert] = 'there was an error adding the transaction please try again' 
+    else
+      flash[:alert] = 'there was an error adding the transaction please try again'
       render :new
-    end 
+    end
   end
 
   private
 
   def entity_params
     params.require(:entity).permit(:name, :amount, :groups)
-  end 
+  end
 
   def set_categorie
     @categorie = Group.find(params[:group_id])
@@ -36,6 +36,5 @@ class EntitiesController < ApplicationController
 
   def set_user
     @user = current_user
-  end 
-
+  end
 end

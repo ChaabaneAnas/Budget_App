@@ -7,18 +7,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :groups , dependent: :destroy
-  has_many :entities , dependent: :destroy
+  has_many :groups, dependent: :destroy
+  has_many :entities, dependent: :destroy
 
+  def c_total
+    total = 0
+    calcul = groups.map(&:total).reduce(:+)
+    total += calcul if calcul
+    total
+  end
 
-  def cTotal
-       total = 0
-       calcul = groups.map {|categorie| categorie.total}.reduce(:+)
-       if calcul
-              total += calcul
-       end    
-       total
-  end  
-
-#   validates :name, presence:true
+  #   validates :name, presence:true
 end

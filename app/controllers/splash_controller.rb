@@ -4,8 +4,8 @@ class SplashController < ApplicationController
     @title = 'MoneyCast'
     if user_signed_in?
       redirect_to groups_path
-    else  
-      render  :index
-    end 
+    else
+      render :index
+    end
   end
 end

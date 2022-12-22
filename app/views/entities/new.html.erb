@@ -1,7 +1,8 @@
 <%= render "shared/nav", {text:"New Transaction", path: group_entities_path} %>
 
+
 <div class="container mt-3">
-  <%= form_with url:  new_group_entity_path do |f| %>
+  <%= form_with scope: :entity, url: group_entities_path(@categorie), method: :post do |f| %>
     <div class="form-group mb-3">
       <%= f.text_field :name,  class:"form-control", Placeholder:"Name"%>
     </div>
@@ -11,5 +12,4 @@
     <%= f.submit "Add Transaction",class:"btn btn-primary btn-sm" %>
   </div>
 <% end %>
-
 
