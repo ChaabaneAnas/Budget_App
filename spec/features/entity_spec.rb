@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.feature "Entities", type: :feature do
+RSpec.feature 'Entities', type: :feature do
   before(:each) do
     @user = User.create(name: 'arbouch', email: 'arbouch@gmail.com', password: 'password')
     @group = Group.create(user: @user, name: 'Food', icon: 'https://icon_url')
-    @entity = Entity.create(user: @user, name:"pizzHut", amount:15)
+    @entity = Entity.create(user: @user, name: 'pizzHut', amount: 15)
     @group.entities << @entity
     visit new_user_session_path
     fill_in 'Email', with: 'arbouch@gmail.com'
