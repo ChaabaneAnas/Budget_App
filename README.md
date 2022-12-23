@@ -206,11 +206,8 @@ If you like this project... please give it a star and share it with ur freinds
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+ - The Design Credit goes to: [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-Microverse for making all of this possibel
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
