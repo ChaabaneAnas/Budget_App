@@ -96,9 +96,13 @@ and postgresql as a database check the section below for more informations about
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
 - [Live Demo Link](https://moneycast.onrender.com)
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Video presentation](https://www.loom.com/share/5e11347d895d4630afac0625bd35bb9b)
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
