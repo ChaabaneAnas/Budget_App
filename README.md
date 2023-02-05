@@ -62,7 +62,8 @@ After you're finished please remove all the comments and instructions!
 > Description
 
 **MoneyCast** is fullstack mobile web app that helps the user keeps track of his spendings,
-it's built using rail a framework built in top of ruby the app is easy to use and has a simple ui and capable of performing all CRUD operations
+it's built using Rail, a framework built in top of ruby.
+the app is easy to use, has a simple ui, and capable of performing all CRUD operations
 please live a star if you like it
 
 ## 🛠 Built With <a name="built-with"></a>
